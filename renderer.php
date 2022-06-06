@@ -551,7 +551,9 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
         $inqcontrol .= html_writer::tag('button', 'Show Chart', array(
-                'class' => 'btn', 'id' => 'showchart', 'onclick' => 'activequiz.show_correct_answer();'
+                'class' => 'btn', 'id' => 'showchart',
+                'onclick' => 'activequiz.show_correct_answer();',
+                'enable'
 
             )
         );
