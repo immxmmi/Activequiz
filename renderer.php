@@ -550,7 +550,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         );
 
 
-        $inqcontrol .= html_writer::tag('button', get_string('showchart', 'activequiz'), array(
+        $inqcontrol .= html_writer::tag('button', 'Show Chart', array(
                 'class' => 'btn', 'id' => 'chart'
 
             )
@@ -757,8 +757,7 @@ EOD;
             'hidestudentresponses',
             'showstudentresponses',
             'hidenotresponded',
-            'shownotresponded',
-            'showchart'
+            'shownotresponded'
         ), 'activequiz');
 
         $this->page->requires->strings_for_js(array('seconds'), 'moodle');
