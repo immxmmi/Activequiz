@@ -592,14 +592,14 @@ activequiz.show_correct_answer = function () {
 
 activequiz.show_chart = function () {
 
-    var hide = false;
     /*
+    var hide = false;
     if (activequiz.get('showingcorrectanswer') != "undefined") {
         if (activequiz.get('showingcorrectanswer') == 'true') {
             hide = true;
         }
     }
-*/
+
     if (hide) {
         activequiz.quiz_info(null, '');
         // change button text
@@ -648,6 +648,8 @@ activequiz.show_chart = function () {
 
         });
     }
+
+ */
 };
 
 
