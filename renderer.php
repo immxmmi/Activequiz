@@ -319,7 +319,8 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
 
-        $output .=' <div class="activequizbox" id="quizinfobox">	<div id="yui_3_17_2_1_1654533377148_189">
+        $output .='
+ 
 			<form action="javascript:void(0);" id="yui_3_17_2_1_1654533377148_188">
                 <input type="hidden" id="sessionid" value="11">
 
@@ -345,7 +346,10 @@ class mod_activequiz_renderer extends plugin_renderer_base
 				<canvas id="apiChart"></canvas>
 			</div>
         </div>
-</div>';
+        
+        
+        
+';
 
 
 
