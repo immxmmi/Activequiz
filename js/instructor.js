@@ -588,6 +588,72 @@ activequiz.show_correct_answer = function () {
     }
 };
 
+
+
+activequiz.show_chart = function () {
+
+    var hide = false;
+    if (activequiz.get('showingcorrectanswer') != "undefined") {
+        if (activequiz.get('showingcorrectanswer') == 'true') {
+            hide = true;
+        }
+    }
+
+    if (hide) {
+        activequiz.quiz_info(null, '');
+        // change button text
+        var scaBtn = document.getElementById('showcorrectanswer');
+        scaBtn.innerHTML = M.util.get_string('show_correct_answer', 'activequiz');
+        activequiz.set('showingcorrectanswer', 'false');
+        this.reload_results();
+    } else {
+        activequiz.loading(M.util.get_string('loading', 'activequiz'), 'show');
+
+        var params = {
+            'action': 'getrightresponse',
+            'rtqid': activequiz.get('rtqid'),
+            'sessionid': activequiz.get('sessionid'),
+            'attemptid': activequiz.get('attemptid'),
+            'sesskey': activequiz.get('sesskey')
+        };
+
+        // make sure we end the question (on end_question function call this is re-doing what we just did)
+        // but handle_request is also called on ending of the question timer in core.js
+        activequiz.ajax.create_request('/mod/activequiz/quizdata.php', params, function (status, response) {
+
+            if (status == 500) {
+                var loadingbox = document.getElementById('loadingbox');
+                loadingbox.classList.add('hidden');
+
+                activequiz.quiz_info('There was an error with your request', true);
+
+                window.alert('there was an error with your request ... ');
+                return;
+            }
+
+            activequiz.hide_all_questionboxes();
+            activequiz.clear_and_hide_qinfobox();
+
+            activequiz.quiz_info(response.rightanswer, true);
+
+            // change button text
+            var scaBtn = document.getElementById('showcorrectanswer');
+            scaBtn.innerHTML = M.util.get_string('hide_correct_answer', 'activequiz');
+
+            activequiz.set('showingcorrectanswer', 'true');
+
+            activequiz.control_buttons(['showcorrectanswer']);
+            activequiz.loading(null, 'hide');
+
+        });
+    }
+};
+
+
+
+
+
+
 /**
  * Toggles the "show student responses" variable
  */
