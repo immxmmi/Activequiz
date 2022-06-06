@@ -592,6 +592,7 @@ activequiz.show_correct_answer = function () {
 
 activequiz.show_chart = function () {
 
+    console.log("test");
     /*
     var hide = false;
     if (activequiz.get('showingcorrectanswer') != "undefined") {
