@@ -319,37 +319,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
 
-        $output .='
- 
-			<form action="javascript:void(0);" id="yui_3_17_2_1_1654533377148_188">
-                <input type="hidden" id="sessionid" value="11">
-
-                <label for="type">Chart Type:</label>
-
-
-				<select id="charttype" name="type">
-					<option value="none">--- choose a chart ---</option>
-					<option value="pie">Pie-Chart</option>
-					<option value="bar">Bar-Chart</option>
-					<option value="doughnut">Doughnut-Chart</option>
-					<option value="unknown">Unknown-Chart</option>
-				</select>
-
-
-
-
-            </form>
-        </div>
-
-        <div class="container">
-			<div class="chartwrapper">
-				<canvas id="apiChart"></canvas>
-			</div>
-        </div>
-        
-        
-        
-';
 
 
 
@@ -397,6 +366,46 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
         # --> DOC
         ############################################################################################
+
+
+
+
+        $output .='
+ 
+			<form action="javascript:void(0);" id="yui_3_17_2_1_1654533377148_188">
+                <input type="hidden" id="sessionid" value="11">
+
+                <label for="type">Chart Type:</label>
+
+
+				<select id="charttype" name="type">
+					<option value="none">--- choose a chart ---</option>
+					<option value="pie">Pie-Chart</option>
+					<option value="bar">Bar-Chart</option>
+					<option value="doughnut">Doughnut-Chart</option>
+					<option value="unknown">Unknown-Chart</option>
+				</select>
+
+
+
+
+            </form>
+        </div>
+
+        <div class="container">
+			<div class="chartwrapper">
+				<canvas id="apiChart"></canvas>
+			</div>
+        </div>
+        
+        
+        
+';
+
+
+
+
+
 
 
         foreach ($attempt->getSlots() as $slot) {
